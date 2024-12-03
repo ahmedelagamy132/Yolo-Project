@@ -1,17 +1,14 @@
 #!/bin/bash
 
-# Sync and clear PageCache, dentries, and inodes
 echo "Clearing file system cache..."
 sudo sync
 echo 3 | sudo tee /proc/sys/vm/drop_caches
 echo "File system cache cleared."
 
-# Clear Python __pycache__ directories
 echo "Clearing Python cache..."
 find / -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null
 echo "Python cache cleared."
 
-# Optional: Clear GPU memory cache for PyTorch or TensorFlow if applicable
 clear_gpu_cache() {
     python3 -c "
 import torch
