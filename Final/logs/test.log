@@ -1,0 +1,14 @@
+Running ram&cpu_test.py...
+Traceback (most recent call last):
+  File "C:\Users\ahmed\Desktop\Yolo-Project\YOLO-FINAL\ram&cpu_test.py", line 4, in <module>
+    from ultralytics import YOLO
+ModuleNotFoundError: No module named 'ultralytics'
+Error occurred while running ram&cpu_test.py.
+----------------------------------------
+Running ram&cpu_test.py...
+Traceback (most recent call last):
+  File "C:\Users\ahmed\Desktop\Yolo-Project\YOLO-FINAL\ram&cpu_test.py", line 4, in <module>
+    from ultralytics import YOLO
+ModuleNotFoundError: No module named 'ultralytics'
+Error occurred while running ram&cpu_test.py.
+----------------------------------------
