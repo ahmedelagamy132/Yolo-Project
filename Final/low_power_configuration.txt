@@ -1,0 +1,8 @@
+arm_freq=600
+gpu_freq=200
+gpu_freq_min=200
+sram_freq=300
+over_voltage=-8
+over_voltage_sdram=-8
+temp_limit=70
+force_turbo=0

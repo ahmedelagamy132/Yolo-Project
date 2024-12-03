@@ -1,0 +1,14 @@
+vcgencmd measure_temp
+vcgencmd get_config arm_freq
+vcgencmd get_config int
+vcgencmd measure_clock arm
+vcgencmd measure_volts uncached
+vcgencmd measure_temp
+
+
+notes:
+    normal values:  
+        arm_freq = 2400
+        over_voltage = 0
+
+    rasberry pi's built-in gpu is not typically  used for deep learning  workloads ; so it might not show GPU-Pecific utilization.
