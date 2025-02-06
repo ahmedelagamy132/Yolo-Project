@@ -1,0 +1,11 @@
+YOLOv9e summary (fused): 687 layers, 57,438,080 parameters, 0 gradients, 189.5 GFLOPs
+val: Scanning /home/agamy/Downloads/Yolo-Project-main/Final/datasets/coco8/labels/val.cache... 4 images, 0 backgrounds, 0 corrupt: 100%|██████████| 4/4 [00:00<?, ?it/s]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [01:09<00:00, 69.67s/it]
+                   all          4         17      0.899      0.899      0.972      0.793
+                person          3         10          1      0.575      0.859      0.568
+                   dog          1          1      0.762          1      0.995      0.995
+                 horse          1          2      0.845          1      0.995      0.711
+              elephant          1          2          1      0.818      0.995      0.691
+              umbrella          1          1          1          1      0.995      0.995
+          potted plant          1          1      0.789          1      0.995      0.796
+Speed: 6.1ms preprocess, 17387.0ms inference, 0.0ms loss, 4.6ms postprocess per image
