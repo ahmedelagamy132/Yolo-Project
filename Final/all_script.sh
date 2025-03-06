@@ -2,7 +2,7 @@
 
 output_file="logs/11nano.log"
 
-scripts=("load_time.py" "disk5.py" "ram&cpu.py" "validation.py" "iou.py" "clear_cache.sh")
+scripts=("load_time.py" "disk5.py" "ram&cpu.py" "validation.py" "iou.py")
 
 model_size="11n"  
 
