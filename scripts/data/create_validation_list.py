@@ -1,3 +1,4 @@
+# Creates a validation-image list from COCO JSON metadata and local image files.
 import json
 import os
 

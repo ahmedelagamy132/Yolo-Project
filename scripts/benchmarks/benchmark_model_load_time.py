@@ -1,3 +1,4 @@
+# Measures the time required to initialize the configured YOLO model.
 from ultralytics import YOLO
 import time
 import os

@@ -1,3 +1,4 @@
+# Converts COCO JSON bounding-box annotations into YOLO label text files.
 import json
 import os
 

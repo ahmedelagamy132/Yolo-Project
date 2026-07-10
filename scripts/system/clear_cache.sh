@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Clears repository Python caches and, when permitted, selected system/GPU caches.
 set -euo pipefail
 
 root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"

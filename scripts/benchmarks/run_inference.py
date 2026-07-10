@@ -1,3 +1,4 @@
+# Runs YOLO inference over every supported image in the COCO128 image set.
 import os
 from ultralytics import YOLO
 

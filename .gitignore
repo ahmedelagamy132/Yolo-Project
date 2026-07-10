@@ -1,3 +1,4 @@
+# Ignore local dependencies, downloaded artifacts, and generated benchmark output.
 # Python
 __pycache__/
 *.py[cod]

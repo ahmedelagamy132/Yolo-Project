@@ -1,3 +1,4 @@
+# Prints the detected GPU names and current utilization values.
 import gpustat
 gpu_stats = gpustat.GPUStatCollection.new_query()
 ## Print GPU information

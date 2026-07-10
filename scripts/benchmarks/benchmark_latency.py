@@ -1,3 +1,4 @@
+# Measures per-image YOLO inference latency across the COCO128 image set.
 import os
 from ultralytics import YOLO
 

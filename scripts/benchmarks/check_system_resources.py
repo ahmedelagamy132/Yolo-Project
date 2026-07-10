@@ -1,4 +1,4 @@
-
+# Prints a short CPU and RAM usage snapshot for the current machine.
 # Importing the library
 import psutil
  

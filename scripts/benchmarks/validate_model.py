@@ -1,3 +1,4 @@
+# Validates the configured YOLO model against the local COCO128 dataset configuration.
 from ultralytics import YOLO
 
 import os

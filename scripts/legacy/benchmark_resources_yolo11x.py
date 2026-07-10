@@ -1,3 +1,4 @@
+# Measures resource usage during the supplementary YOLO11x benchmark variant.
 import psutil
 import time
 import os

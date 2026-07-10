@@ -1,3 +1,4 @@
+# Runs the supplementary CPU-only YOLO validation variant.
 from ultralytics import YOLO
 
 # Load a model

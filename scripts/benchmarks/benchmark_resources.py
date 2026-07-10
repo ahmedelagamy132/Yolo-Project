@@ -1,3 +1,4 @@
+# Measures CPU use, memory use, latency, and FPS during YOLO inference.
 import os
 import psutil
 import time

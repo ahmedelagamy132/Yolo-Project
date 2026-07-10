@@ -1,4 +1,5 @@
 #!/bin/bash
+# Runs the supplementary YOLO11x benchmark sequence and writes its output to a log.
 
 root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$root_dir"

@@ -1,3 +1,4 @@
+# Measures process disk I/O while running YOLO inference over the COCO128 images.
 import psutil
 import time
 import os

@@ -1,3 +1,4 @@
+# Python packages required to run the YOLO benchmark and data-processing scripts.
 gpustat>=1.1
 opencv-python>=4.8
 Pillow>=10.0

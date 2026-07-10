@@ -1,3 +1,4 @@
+# Extracts benchmark metrics from a log file and saves them as structured JSON.
 import re
 import os
 import json
