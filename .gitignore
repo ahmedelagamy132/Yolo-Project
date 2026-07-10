@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Downloaded models and extracted datasets
+*.pt
+*.onnx
+*.engine
+data/coco128/
+data/coco/
+
+# Generated benchmark output
+runs/
+results/logs/generated/
+results/extracted/

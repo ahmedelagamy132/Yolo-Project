@@ -1,89 +1,125 @@
-# YOLO Model Performance on Microcontrollers
+# YOLO edge-device benchmarks
 
-This repository contains the results and methodology of our research comparing the performance of various YOLO models on different microcontroller platforms. The goal is to evaluate the efficiency and feasibility of deploying state-of-the-art object detection algorithms on edge devices.
+This repository contains the experimental code and recorded results used to compare YOLO models on resource-constrained edge devices, including NVIDIA Jetson boards and Raspberry Pi systems.
 
----
+The benchmark logic is preserved from the original repository revision `830f948`. Files have been renamed and organized, and dataset/log paths were updated for the new structure. The CPU/RAM sampling, latency calculation, disk-I/O behavior, IoU calculation, model selection, and validation calls remain the original research implementation.
 
-## Overview
+See [docs/CODE_PROVENANCE.md](docs/CODE_PROVENANCE.md) for the original-to-organized file mapping and the complete list of permitted changes.
 
-### Objectives
-- Benchmark multiple YOLO models (YOLOv1 to YOLOv11 and their derivatives) on various microcontroller platforms.
-- Analyze performance metrics including:
-  - Latency
-  - Frame Per Second (FPS)
-  - Power consumption
-  - Model size
-  - Resource utilization (CPU, GPU, RAM)
-  - Disk I/O
-  - Temperature
+## Repository layout
 
-### Microcontroller Platforms
-The following microcontroller platforms were evaluated:
-- NVIDIA Jetson Nano
-- Raspberry Pi (models 4 and 5)
-- Google Coral Accelerator
-- LattePanda
-- Orin
+```text
+.
+|-- assets/                  Figures used by the project
+|-- configs/                 Dataset and device configuration
+|-- data/
+|   `-- archives/            Compressed sample datasets
+|-- docs/                    Benchmark notes and device commands
+|-- results/
+|   |-- average_precision/   Recorded validation output by YOLO version
+|   |-- iou/                 Recorded IoU output
+|   `-- logs/
+|       `-- reference/       Logs retained from the original repository
+`-- scripts/
+    |-- benchmarks/          Original experimental programs, renamed
+    |-- data/                Original COCO preparation utilities, renamed
+    |-- legacy/              Duplicate/test scripts retained for provenance
+    |-- reporting/           Original log parser, renamed
+    |-- system/              Device/cache helper
+    `-- run_benchmarks.sh    Organized equivalent of all_script.sh
+```
 
----
+## Setup
 
-## Dataset
-The benchmarks use standard datasets for object detection, including:
-- MS COCO
+```bash
+git clone https://github.com/ahmedelagamy132/Yolo-Project.git
+cd Yolo-Project
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
 
-These datasets were chosen to maintain consistency with existing YOLO model benchmarks.
+On Windows PowerShell, activate the environment with `.venv\Scripts\Activate.ps1`.
 
----
+Extract the included COCO128 sample before running the benchmarks:
 
-## YOLO Models
-The YOLO models tested include:
-- YOLOv1, YOLOv2 ,YOLOv3, YOLOv4, YOLOv5, YOLOv6, YOLOv7, YOLOv8, YOLOv9, YOLOv10, YOLOv11
-- Tiny YOLO variants (YOLOv3-tiny, YOLOv4-tiny, etc.)
-- Nano YOLO models
+```bash
+unzip data/archives/coco128.zip -d data
+```
 
----
+On Windows PowerShell:
 
-## Metrics
-The following performance metrics were measured:
-1. **Latency**: Time taken to process a single frame.
-2. **FPS**: Number of frames processed per second.
-3. **Model Size**: Disk size of the YOLO model.
-4. **Power Consumption**: Measured using a USB power meter or INA219 sensor.
-5. **Resource Utilization**:
-   - CPU usage (%)
-   - GPU usage (if applicable)
-   - RAM usage
-6. **Temperature**: Monitored during operation.
-7. **Stress Testing**: Evaluated the microcontroller's ability to handle prolonged high-intensity tasks.
+```powershell
+Expand-Archive data/archives/coco128.zip -DestinationPath data
+```
 
----
+Run all commands from the repository root. Ultralytics downloads model weights automatically when they are not already available.
 
-## Methodology
-1. **Environment Setup**:
-   - Installed YOLO model dependencies on microcontrollers.
-   - Configured power modes for supported devices (e.g., Jetson Nano's 5W and 10W modes).
+## Reproduce the original benchmark flow
 
-2. **Testing**:
-   - Deployed YOLO models on each microcontroller.
-   - Evaluated models with the selected datasets.
-   - Recorded the performance metrics using system monitoring tools (e.g., `htop`, `iotop`, `vcgencmd`).
+The organized runner preserves the original `all_script.sh` order and its YOLO11n model setting:
 
-3. **Data Collection**:
-   - Automated scripts were used to measure execution time, resource usage, and other metrics.
+```bash
+bash scripts/run_benchmarks.sh
+```
 
----
+It appends output to `results/logs/generated/yolo11n.log`, matching the original append behavior. Remove or archive that generated log before a clean experimental run.
 
-## Results
-Results are documented in the attached spreadsheet: **[Results.xlsx](./Results.xlsx)**.
+The runner executes these scripts in order:
 
-Highlights include:
-- Performance trade-offs between model accuracy and latency.
-- Comparison of resource utilization across different microcontrollers.
-- Analysis of mAP (mean Average Precision) versus latency.
+1. `benchmark_model_load_time.py`
+2. `benchmark_disk_io.py`
+3. `benchmark_resources.py`
+4. `validate_model.py`
+5. `benchmark_iou.py`
 
----
+The disk-I/O benchmark retains `save=True`, so prediction images are written by Ultralytics and included in the measured write activity.
 
-## Conclusion
-This research provides insights into the practicality of deploying YOLO models on edge devices. It highlights the trade-offs between model complexity, resource constraints, and real-time performance, offering guidance for selecting YOLO models for specific applications.
+## Individual scripts
 
----
+```bash
+python scripts/benchmarks/benchmark_disk_io.py
+python scripts/benchmarks/benchmark_iou.py
+python scripts/benchmarks/benchmark_latency.py
+python scripts/benchmarks/benchmark_model_load_time.py
+python scripts/benchmarks/benchmark_resources.py
+python scripts/benchmarks/run_inference.py
+python scripts/benchmarks/validate_model.py
+```
+
+The original model-selection behavior is intentionally retained:
+
+- Disk I/O, CPU/RAM, IoU, and validation read `YOLO_MODEL_SIZE`, defaulting to `11n`.
+- The standalone latency script uses `yolo11s.pt`.
+- The standalone inference script uses `yolo11m.pt`.
+- The model-load script uses the original `YOLO("yolo11n")` call.
+
+## Data and reporting utilities
+
+The original data-preparation algorithms are retained. Their path variables now point to `data/coco`; edit those variables if the full COCO dataset is stored elsewhere.
+
+```bash
+python scripts/data/create_validation_list.py
+python scripts/data/convert_coco_to_yolo.py
+python scripts/reporting/extract_metrics.py
+```
+
+The COCO-to-YOLO converter retains the original append mode. Running it more than once without clearing the target label directory will duplicate annotations.
+
+## Research reproducibility notes
+
+To compare a new run with the recorded results, use the same:
+
+- device and power configuration;
+- operating system and drivers;
+- Python and package versions;
+- YOLO weight files;
+- COCO data files and image order;
+- background workload and thermal conditions.
+
+Timing, CPU, RAM, and disk measurements can still vary naturally between runs even when the code is identical.
+
+The only intentional non-path safety difference is `scripts/system/clear_cache.sh`: it is not called by the benchmark runner, and its Python-cache deletion is restricted to this repository rather than the entire computer.
+
+FPS is calculated as `1000 / total latency in milliseconds`; see [docs/fps_calculation.md](docs/fps_calculation.md). The empty `results/average_precision/v11/yolo11m.txt` file is retained because it was empty in the original repository.
