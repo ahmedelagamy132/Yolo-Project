@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# Clears repository Python caches and, when permitted, selected system/GPU caches.
+# Purpose: clear repository Python caches and, when permitted, selected system/GPU caches.
+# Input: the local repository directory and optional Linux/PyTorch/TensorFlow cache interfaces.
+# Output: cache-cleanup status messages; no benchmark metrics are generated.
 set -euo pipefail
 
 root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"

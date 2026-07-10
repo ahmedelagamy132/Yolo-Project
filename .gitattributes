@@ -1,3 +1,4 @@
 # Enforce consistent text and shell-script line endings across platforms.
+# This prevents Bash scripts from receiving Windows line endings after a clone.
 * text=auto
 *.sh text eol=lf

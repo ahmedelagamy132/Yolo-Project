@@ -1,4 +1,6 @@
-# Converts COCO JSON bounding-box annotations into YOLO label text files.
+# Purpose: convert COCO JSON bounding-box annotations into YOLO label text files.
+# Input: `instances_val2017.json` under `data/coco/annotations`.
+# Output: one normalized YOLO-format label file per image under `data/coco/labels/val2017`.
 import json
 import os
 

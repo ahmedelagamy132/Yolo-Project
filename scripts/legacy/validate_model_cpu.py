@@ -1,4 +1,6 @@
-# Runs the supplementary CPU-only YOLO validation variant.
+# Purpose: run the supplementary CPU-only YOLO validation variant.
+# Input: `configs/coco128.yaml` and fixed YOLO11n model weights.
+# Output: Ultralytics validation metrics calculated on the CPU.
 from ultralytics import YOLO
 
 # Load a model

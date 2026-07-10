@@ -1,4 +1,6 @@
-# Calculates the average best-match IoU between YOLO predictions and dataset labels.
+# Purpose: calculate the average best-match IoU between YOLO predictions and dataset labels.
+# Input: COCO128 images, matching YOLO label files, and a model selected by YOLO_MODEL_SIZE.
+# Output: the average IoU across all predicted bounding boxes printed to stdout.
 import os
 import cv2
 from ultralytics import YOLO

@@ -1,4 +1,5 @@
 # COCO 2017 validation dataset.
+# Point `path` to the local COCO directory before validating against the full dataset.
 path: data/coco
 val: val2017.txt
 

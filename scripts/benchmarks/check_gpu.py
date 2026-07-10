@@ -1,4 +1,6 @@
-# Prints the detected GPU names and current utilization values.
+# Purpose: print the detected GPU names and current utilization values.
+# Input: GPU information exposed by the local NVIDIA driver through gpustat.
+# Output: one utilization line for each detected GPU.
 import gpustat
 gpu_stats = gpustat.GPUStatCollection.new_query()
 ## Print GPU information

@@ -1,4 +1,6 @@
-# Measures resource usage during the supplementary YOLO11x benchmark variant.
+# Purpose: measure resource usage during the supplementary YOLO11x benchmark variant.
+# Input: COCO128 images and the fixed YOLO11x model weights.
+# Output: average CPU percentage, memory percentage, and latency printed to stdout.
 import psutil
 import time
 import os

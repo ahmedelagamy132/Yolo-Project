@@ -1,4 +1,6 @@
-# Measures the time required to initialize the configured YOLO model.
+# Purpose: measure the time required to initialize the YOLO11n model.
+# Input: the model weights resolved by Ultralytics when the model is constructed.
+# Output: model initialization time in seconds printed to stdout.
 from ultralytics import YOLO
 import time
 import os

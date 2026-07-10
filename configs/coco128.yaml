@@ -1,4 +1,5 @@
 # Local COCO128 sample dataset used by the benchmark scripts.
+# It defines the image folders and the 80 COCO class names used by Ultralytics validation.
 path: data/coco128
 train: images/train2017
 val: images/train2017

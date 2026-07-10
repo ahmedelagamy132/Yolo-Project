@@ -1,4 +1,6 @@
-# Measures CPU use, memory use, latency, and FPS during YOLO inference.
+# Purpose: measure CPU use, memory use, latency, and FPS during YOLO inference.
+# Input: COCO128 images and a YOLO model selected by YOLO_MODEL_SIZE.
+# Output: average script CPU percentage, memory percentage, latency, and calculated FPS.
 import os
 import psutil
 import time

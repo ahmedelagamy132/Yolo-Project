@@ -1,4 +1,6 @@
-# Creates a validation-image list from COCO JSON metadata and local image files.
+# Purpose: create a validation-image list from COCO JSON metadata and local image files.
+# Input: the COCO validation annotation JSON and images under `data/coco/images/val2017`.
+# Output: `data/coco/val2017.txt`, containing one available validation-image path per line.
 import json
 import os
 

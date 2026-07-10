@@ -1,4 +1,5 @@
 # Ignore local dependencies, downloaded artifacts, and generated benchmark output.
+# These files are machine-specific or recreated by benchmark runs and should not be committed.
 # Python
 __pycache__/
 *.py[cod]

@@ -1,5 +1,7 @@
 #!/bin/bash
-# Runs the standard sequence of YOLO benchmark scripts and appends their output to one log.
+# Purpose: run the standard sequence of YOLO benchmark scripts and append their output to one log.
+# Input: the configured COCO128 dataset and YOLO11n model weights.
+# Output: `results/logs/generated/yolo11n.log` containing output from every benchmark step.
 
 root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$root_dir"

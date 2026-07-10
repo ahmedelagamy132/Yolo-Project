@@ -1,4 +1,6 @@
-# Validates the configured YOLO model against the local COCO128 dataset configuration.
+# Purpose: validate the configured YOLO model against the local COCO128 dataset configuration.
+# Input: `configs/coco128.yaml` and a model selected by YOLO_MODEL_SIZE.
+# Output: Ultralytics validation metrics, including precision, recall, and mAP.
 from ultralytics import YOLO
 
 import os

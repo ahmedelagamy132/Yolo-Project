@@ -1,4 +1,6 @@
-# Prints a short CPU and RAM usage snapshot for the current machine.
+# Purpose: print a short CPU and RAM usage snapshot for the current machine.
+# Input: system counters collected by psutil during a four-second CPU sampling interval.
+# Output: CPU percentage, RAM percentage, and RAM used in gigabytes.
 # Importing the library
 import psutil
  

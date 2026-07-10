@@ -1,4 +1,6 @@
-# Extracts benchmark metrics from a log file and saves them as structured JSON.
+# Purpose: extract benchmark metrics from a log file and save them as structured JSON.
+# Input: the generated YOLO11n benchmark log under `results/logs/generated`.
+# Output: `results/extracted/yolo11n.json`, containing the metrics recognized by this parser.
 import re
 import os
 import json

@@ -1,4 +1,6 @@
-# Measures process disk I/O while running YOLO inference over the COCO128 images.
+# Purpose: measure process disk I/O while running YOLO inference over COCO128 images.
+# Input: `data/coco128/images/train2017` and a YOLO model selected by YOLO_MODEL_SIZE.
+# Output: per-image and average elapsed time, read/write volume, and disk throughput printed to stdout.
 import psutil
 import time
 import os

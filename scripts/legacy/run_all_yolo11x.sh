@@ -1,5 +1,7 @@
 #!/bin/bash
-# Runs the supplementary YOLO11x benchmark sequence and writes its output to a log.
+# Purpose: run the supplementary YOLO11x benchmark sequence and write its output to a log.
+# Input: the configured COCO128 dataset and YOLO11x model weights.
+# Output: `results/logs/generated/test.log` containing output from every listed command.
 
 root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$root_dir"

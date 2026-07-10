@@ -1,4 +1,6 @@
-# Measures per-image YOLO inference latency across the COCO128 image set.
+# Purpose: measure per-image YOLO inference latency across the COCO128 image set.
+# Input: all supported image files under `data/coco128/images/train2017`.
+# Output: average preprocessing, inference, and postprocessing latency reported by Ultralytics.
 import os
 from ultralytics import YOLO
 

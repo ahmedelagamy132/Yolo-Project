@@ -1,4 +1,6 @@
-# Runs YOLO inference over every supported image in the COCO128 image set.
+# Purpose: run YOLO inference over every supported image in the COCO128 image set.
+# Input: all supported images under `data/coco128/images/train2017`.
+# Output: progress messages for each image; prediction files are not saved by this script.
 import os
 from ultralytics import YOLO
 
